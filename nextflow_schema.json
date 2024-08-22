@@ -21,7 +21,6 @@
         },
         "clade": {
           "type": "string",
-          "default": "cladei",
           "title": "Clade",
           "description": "Specify whether the alignment is primarily for `cladei` or `cladeii`.",
           "enum": [
@@ -51,10 +50,17 @@
           "description": "Run phylogenetic reconstruction pipeline",
           "help_text": ""
         },
+        "include_background": {
+          "type": "boolean",
+          "default": false,
+          "title": "Include Background",
+          "description": "Include a default background set of sequences for the phylogenetics pipeline. Only the included outgroup sequences will be used, not those specified with `Outgroups`",
+          "help_text": "The set will be determined by the `--clade` specified."
+        },
         "outgroups": {
           "type": "string",
           "title": "Outgroups",
-          "description": "Specify which MPXV outgroup(s) in the alignment to use in the phylogeny.",
+          "description": "Specify which MPXV outgroup(s) in the alignment to use in the phylogeny. These must be in the input FASTA. Ignored if `Include Background` is selected.",
           "help_text": "These are used only by the phylogenetics module and will get pruned out from the final tree."
         },
         "assembly_refs": {
@@ -66,7 +72,8 @@
         }
       },
       "required": [
-        "fasta"
+        "fasta",
+        "clade"
       ]
     },
     "output_options": {
