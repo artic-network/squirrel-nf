@@ -35,6 +35,8 @@ process squirrel {
         extra += " --clade ${params.clade}"
     if ( params.run_phylo )
         extra += " --run-phylo"
+    if ( params.include_background )
+        extra += " --include-background"
     if ( params.outgroups )
         extra += " --outgroups ${params.outgroups}"
     
