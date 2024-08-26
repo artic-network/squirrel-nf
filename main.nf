@@ -41,7 +41,7 @@ process squirrel {
     if ( params.include_background )
         extra += " --include-background"
     if ( params.additional_background )
-        extra += " --additional-background bg.fa"
+        extra += " -bf bg.fa"
     if ( params.outgroups )
         extra += " --outgroups ${params.outgroups}"
     
