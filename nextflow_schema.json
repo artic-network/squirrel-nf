@@ -22,11 +22,11 @@
         "clade": {
           "type": "string",
           "title": "Clade",
-          "description": "Specify whether the alignment is primarily for `cladei` or `cladeii`.",
+          "description": "Specify whether the alignment is primarily for 'cladei' or 'cladeii'.",
           "enum": [
             "cladei",
-	    "cladeia",
-	    "cladeib",
+	        "cladeia",
+	        "cladeib",
             "cladeii",
             "cladeiia",
             "cladeiib"
@@ -38,7 +38,7 @@
           "default": false,
           "title": "Run Sequence QC",
           "description": "Flag potentially problematic SNPs and sequences.",
-          "help_text": "Note that if run_phylo is also selected this additionally run qc based on the phylogenetic tree."
+          "help_text": "Note that if 'Run Phylo' is also selected this additionally runs qc based on the phylogenetic tree."
         },
         "additional_mask": {
           "type": "string",
@@ -51,25 +51,39 @@
           "type": "boolean",
           "default": false,
           "title": "Run Phylo",
-          "description": "Run phylogenetic reconstruction pipeline",
+          "description": "Run phylogenetics pipeline",
+          "help_text": ""
+        },
+        "run_apobec3_phylo": {
+          "type": "boolean",
+          "default": false,
+          "title": "Run APOBEC3 Phylo",
+          "description": "Run phylogenetics & APOBEC3-mutation reconstruction pipeline",
           "help_text": ""
         },
         "include_background": {
           "type": "boolean",
           "default": false,
           "title": "Include Background",
-          "description": "Include a default background set of sequences for the phylogenetics pipeline. Only the included outgroup sequences will be used, not those specified with `Outgroups`",
-          "help_text": "The set will be determined by the `--clade` specified."
+          "description": "Include a default background set of sequences for the phylogenetics pipeline. ",
+          "help_text": "The set will be determined by the `--clade` specified. Only the included outgroup sequences will be used, not those specified with 'Outgroups'."
+        },
+        "additional_background": {
+          "type": "string",
+          "format": "file-path",
+          "title": "Additional Background",
+          "description": "Include this additional FASTA file as background to the phylogenetics",
+          "help_text": ""
         },
         "outgroups": {
           "type": "string",
           "title": "Outgroups",
-          "description": "Specify which MPXV outgroup(s) in the alignment to use in the phylogeny. These must be in the input FASTA. Ignored if `Include Background` is selected.",
-          "help_text": "These are used only by the phylogenetics module and will get pruned out from the final tree."
+          "description": "Specify which MPXV outgroup(s) in the alignment to use in the phylogeny. ",
+          "help_text": "These are used only by the phylogenetics module and will get pruned out from the final tree. These must be in the input FASTA. Ignored if 'Include Background' is selected."
         },
         "assembly_refs": {
           "type": "string",
-          "format": "path",
+          "format": "file-path",
           "title": "Assembly References",
           "description": "References to check for `calls to reference` against, used only by the sequence QC process.",
           "help_text": ""

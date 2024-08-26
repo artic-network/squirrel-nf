@@ -6,7 +6,8 @@ process squirrel {
 
   input:
     path fasta
-    path refs
+    path "refs.fa"
+    path "bg.fa"
     path additional_mask
     
   output:
@@ -20,7 +21,7 @@ process squirrel {
     if ( params.seq_qc )
         extra += " --seq-qc"
     if ( params.assembly_refs )
-        extra += " --assembly-refs ${refs}"
+        extra += " --assembly-refs refs.fa"
     if ( params.no_mask )
         extra += " --no-mask"
     if ( params.no_itr_mask )
@@ -35,8 +36,12 @@ process squirrel {
         extra += " --clade ${params.clade}"
     if ( params.run_phylo )
         extra += " --run-phylo"
+    if ( params.run_abobec3_phylo )
+        extra += " --run-apobec3-phylo"
     if ( params.include_background )
         extra += " --include-background"
+    if ( params.additional_background )
+        extra += " -bf bg.fa"
     if ( params.outgroups )
         extra += " --outgroups ${params.outgroups}"
     
@@ -52,7 +57,13 @@ workflow {
       refs_ch = channel.fromPath("${projectDir}/${params.default_assembly_refs}", checkIfExists:true)
   }
 
-if ( params.additional_mask ) {
+  if ( params.additional_background ) {
+      bg_ch = channel.fromPath("${params.additional_background}", checkIfExists:true)
+  } else {
+      bg_ch = channel.fromPath("${projectDir}/${params.default_additional_background}", checkIfExists:true)
+  }
+
+  if ( params.additional_mask ) {
       mask_ch = channel.fromPath("${params.additional_mask}", checkIfExists:true)
   } else {
       mask_ch = channel.fromPath("${projectDir}/${params.default_additional_mask}", checkIfExists:true)
@@ -60,5 +71,5 @@ if ( params.additional_mask ) {
   
   fasta_ch = Channel.of(file("${params.fasta}", type: "file", checkIfExists:true))
   
-  squirrel(fasta_ch, refs_ch, mask_ch)
+  squirrel(fasta_ch, refs_ch, bg_ch, mask_ch)
 }
