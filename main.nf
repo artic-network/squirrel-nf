@@ -36,7 +36,7 @@ process squirrel {
         extra += " --clade ${params.clade}"
     if ( params.run_phylo )
         extra += " --run-phylo"
-    if ( params.run_abobec3_phylo )
+    if ( params.run_apobec3_phylo )
         extra += " --run-apobec3-phylo"
     if ( params.include_background )
         extra += " --include-background"
