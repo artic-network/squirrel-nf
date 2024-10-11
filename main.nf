@@ -1,6 +1,6 @@
 process squirrel {
 
-  container "${params.wf.container}:${workflow.manifest.version}"
+  container "${params.wf.container}:${params.wf.container_version}"
   
   publishDir "${params.out_dir}", mode: 'copy', saveAs: {  fn -> fn.replace("squirrel_output/", "")}
 
