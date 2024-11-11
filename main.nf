@@ -1,6 +1,6 @@
 process squirrel {
 
-  container "${params.wf.container}:${workflow.manifest.version}"
+  container "${params.wf.container}:${params.wf.container_version}"
   
   publishDir "${params.out_dir}", mode: 'copy', saveAs: {  fn -> fn.replace("squirrel_output/", "")}
 
@@ -36,7 +36,7 @@ process squirrel {
         extra += " --clade ${params.clade}"
     if ( params.run_phylo )
         extra += " --run-phylo"
-    if ( params.run_abobec3_phylo )
+    if ( params.run_apobec3_phylo )
         extra += " --run-apobec3-phylo"
     if ( params.include_background )
         extra += " --include-background"
