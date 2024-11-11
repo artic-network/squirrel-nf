@@ -144,9 +144,9 @@
         },
         "extra_flags": {
           "type": "string",
-          "default": false,
           "title": "Extra flags ",
-          "description": "Additional command line arguments to be passed to squirrel."
+          "description": "Additional command line arguments to be passed to squirrel.",
+          "help_text": ""
         }
       }
     },
