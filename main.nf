@@ -44,6 +44,8 @@ process squirrel {
         extra += " -bf bg.fa"
     if ( params.outgroups )
         extra += " --outgroups ${params.outgroups}"
+    if ( params.extra_flags )
+            extra += " ${params.extra_flags}"
     
     """
     export XDG_CACHE_HOME=\$PWD/.cache

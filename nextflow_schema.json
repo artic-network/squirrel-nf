@@ -141,6 +141,12 @@
           "title": "Concatenate CDS ",
           "description": "Concatenate coding sequences for each genome, separated by `NNN`.",
           "help_text": "Default: write out as separate records."
+        },
+        "extra_flags": {
+          "type": "string",
+          "title": "Extra flags ",
+          "description": "Additional command line arguments to be passed to squirrel.",
+          "help_text": ""
         }
       }
     },
