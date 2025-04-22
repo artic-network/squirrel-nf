@@ -11,7 +11,7 @@ process squirrel {
     path additional_mask
     
   output:
-    path "squirrel_output/${fasta.baseName}.aln.fasta"
+    path "squirrel_output/${fasta.baseName}*.aln.fasta"
     path "squirrel_output/**"
 
   script:
