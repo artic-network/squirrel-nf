@@ -25,11 +25,12 @@
           "description": "Specify whether the alignment is primarily for 'cladei' or 'cladeii'.",
           "enum": [
             "cladei",
-	        "cladeia",
-	        "cladeib",
+	    "cladeia",
+	    "cladeib",
             "cladeii",
             "cladeiia",
-            "cladeiib"
+            "cladeiib",
+            "split"
           ],
           "help_text": ""
         },
