@@ -50,7 +50,7 @@ process squirrel {
     """
     export XDG_CACHE_HOME=\$PWD/.cache
     squirrel --version 2>&1 | sed 's/: /,/' > squirrel.version
-    squirrel ${fasta} -o squirrel_output --outfile ${fasta.baseName}.aln.fasta --tempdir squirrel_tmp -t ${task.cpus} ${extra}
+    squirrel ${fasta} -o squirrel_output --epi2me-outdir ${params.out_dir} --outfile ${fasta.baseName}.aln.fasta --tempdir squirrel_tmp -t ${task.cpus} ${extra}
     """
 }
 
