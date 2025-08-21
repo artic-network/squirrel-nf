@@ -3,7 +3,7 @@ Workflow to run [squirrel](https://github.com/aineniamh/squirrel) through a GUI
 
 **S**ome **QUI**ck **R**earranging to **R**esolve **E**volutionary **L**inks
 
-A full walkthrough of this workflow can be found [here](https://artic.network/mpxv/mpxv-phylogenetics-epi2me-sop.html)
+A full walkthrough of this workflow can be found [here](https://artic.network/viruses/mpxv/mpxv-phylogenetics-epi2me-sop.html)
 
 Squirrel allows the following analyses of MPXV Clade I or Clade II sequences:
 1. Generate an alignment 
